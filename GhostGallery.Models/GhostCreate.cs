@@ -5,31 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GhostGallery.Data
+namespace GhostGallery.Models
 {
-    public class Ghost
+    public class GhostCreate
     {
-        [Key]
-        public int GhostId { get; set; }
-        [Required]
-        public Guid OwnerId { get; set; }
-        [Required]
         public string Name { get; set; }
-        [Display(Name ="Haunt Location")]
-        public int? Location { get; set; }
-        [Required]
+        public int Location { get; set; }
         public string Type { get; set; }
-        [Required]
-        [Display(Name="First Sighting")]
         public DateTimeOffset FirstSighting { get; set; }
-        [Required]
         public string Appearance { get; set; }
-        [Required]
         public string Description { get; set; }
-        [Required]
-        [Display(Name="Threat Level")]
+        [Range(1, 10, ErrorMessage = "Please enter a number between 1 and 10.")]
         public int ThreatLevel { get; set; }
-        [Required]
         public string Powers { get; set; }
     }
 }

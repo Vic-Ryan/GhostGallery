@@ -54,11 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GhostService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GhostGallery.Data\GhostGallery.Data.csproj">
+      <Project>{04c4b7c5-4298-4834-89b8-c15197f1c425}</Project>
+      <Name>GhostGallery.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GhostGallery.Models\GhostGallery.Models.csproj">
+      <Project>{252a37b2-b372-4d15-97ff-1cda9640313b}</Project>
+      <Name>GhostGallery.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
