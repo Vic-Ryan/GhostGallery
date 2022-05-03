@@ -33,6 +33,7 @@ namespace GhostGallery.Data
         }
 
         public DbSet<Ghost> Ghosts { get; set; }
+        public DbSet<Location> Locations { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
