@@ -53,5 +53,25 @@ namespace GhostGallery.Services
                 return query.ToArray();
             }
         }
+
+        public GhostDetail GetGhostById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Ghosts.Single(e => e.GhostId == id && e.OwnerId == _userId);
+                return new GhostDetail
+                {
+                    GhostId = entity.GhostId,
+                    Name = entity.Name,
+                    Location = entity.Location,
+                    Type = entity.Type,
+                    FirstSighting = entity.FirstSighting,
+                    Appearance = entity.Appearance,
+                    Description = entity.Description,
+                    ThreatLevel = entity.ThreatLevel,
+                    Powers = entity.Powers
+                };
+            }
+        }
     }
 }

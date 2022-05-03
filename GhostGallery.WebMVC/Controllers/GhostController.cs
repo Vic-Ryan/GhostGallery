@@ -49,6 +49,13 @@ namespace GhostGallery.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Details(int id)
+        {
+            var svc = CreateGhostService();
+            var model = svc.GetGhostById(id);
+            return View(model);
+        }
+
 
         private GhostService CreateGhostService()
         {
