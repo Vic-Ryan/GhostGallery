@@ -240,6 +240,7 @@
     <Content Include="Views\Ghost\Create.cshtml" />
     <Content Include="Views\Ghost\Details.cshtml" />
     <Content Include="Views\Ghost\Edit.cshtml" />
+    <Content Include="Views\Ghost\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

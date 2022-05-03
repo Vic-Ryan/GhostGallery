@@ -92,5 +92,17 @@ namespace GhostGallery.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public bool DeleteGhost(int ghostId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Ghosts.Single(e => e.GhostId == ghostId && e.OwnerId == _userId);
+
+                ctx.Ghosts.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

@@ -102,6 +102,29 @@ namespace GhostGallery.WebMVC.Controllers
             return View(model);
         }
 
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateGhostService();
+            var model = svc.GetGhostById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteGhost(int id)
+        {
+            var service = CreateGhostService();
+
+            service.DeleteGhost(id);
+
+            TempData["SaveResult"] = "Ghost successfully deleted.";
+
+            return RedirectToAction("Index");
+        }
+
         private GhostService CreateGhostService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
