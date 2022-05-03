@@ -56,6 +56,51 @@ namespace GhostGallery.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Edit(int id)
+        {
+            var service = CreateGhostService();
+            var detail = service.GetGhostById(id);
+            var model = new GhostEdit
+            {
+                GhostId = detail.GhostId,
+                Name = detail.Name,
+                Location = detail.Location,
+                Type = detail.Type,
+                FirstSighting = detail.FirstSighting,
+                Appearance = detail.Appearance,
+                Description = detail.Description,
+                ThreatLevel = detail.ThreatLevel,
+                Powers = detail.Powers
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, GhostEdit model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            if (model.GhostId != id)
+            {
+                ModelState.AddModelError("", "Id Does Not Match");
+                return View(model);
+            }
+
+            var service = CreateGhostService();
+
+            if (service.UpdateGhost(model))
+            {
+                TempData["SaveResult"] = "Ghost successfully updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Ghost could not be updated.");
+            return View(model);
+        }
 
         private GhostService CreateGhostService()
         {

@@ -73,5 +73,24 @@ namespace GhostGallery.Services
                 };
             }
         }
+
+        public bool UpdateGhost(GhostEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Ghosts.Single(e => e.GhostId == model.GhostId && e.OwnerId == _userId);
+
+                entity.Name = model.Name;
+                entity.Location = model.Location;
+                entity.Type = model.Type;
+                entity.FirstSighting = model.FirstSighting;
+                entity.Appearance = model.Appearance;
+                entity.Description = model.Description;
+                entity.ThreatLevel = model.ThreatLevel;
+                entity.Powers = model.Powers;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

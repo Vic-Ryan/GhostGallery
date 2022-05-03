@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="GhostCreate.cs" />
     <Compile Include="GhostDetail.cs" />
+    <Compile Include="GhostEdit.cs" />
     <Compile Include="GhostListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
