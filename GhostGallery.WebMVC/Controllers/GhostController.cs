@@ -36,12 +36,25 @@ namespace GhostGallery.WebMVC.Controllers
                 return View(model);
             }
 
+            var service = CreateGhostService();
+
+            if (service.CreateGhost(model))
+            {
+                TempData["SaveResult"] = "Ghost successfully added.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Ghost could not be added");
+
+            return View(model);
+        }
+
+
+        private GhostService CreateGhostService()
+        {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new GhostService(userId);
-
-            service.CreateGhost(model);
-
-            return RedirectToAction("Index");
+            return service;
         }
     }
 }
