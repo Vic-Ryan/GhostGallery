@@ -1,24 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GhostGallery.Data
+namespace GhostGallery.Models
 {
-    public class Location
+    public class LocationEdit
     {
-        [Key]
-        [Required]
         public int LocationId { get; set; }
-        [Required]
-        public Guid OwnerId { get; set; }
-        [Required]
         public string Name { get; set; }
-        [Required]
         public string Address { get; set; }
-        [Required]
         public int? Ghosts { get; set; }
     }
 }

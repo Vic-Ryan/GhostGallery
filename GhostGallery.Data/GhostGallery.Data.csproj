@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Event.cs" />
     <Compile Include="Ghost.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Location.cs" />

@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace GhostGallery.Models
 {
-    public class GhostListItem
+    public class LocationDetail
     {
-        [Display(Name="Ghost ID")]
-        public int GhostId { get; set; }
+        [Display(Name="Location ID")]
+        public int LocationId { get; set; }
         public string Name { get; set; }
-        public string Type { get; set; }
-        [Display(Name="First Sighting")]
-        public DateTimeOffset FirstSighting { get; set; }
+        public string Address { get; set; }
+        [Display(Name="Ghost(s)")]
+        public int? Ghosts { get; set; }
     }
 }

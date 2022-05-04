@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace GhostGallery.Data
 {
-    public class Location
+    public class Event
     {
         [Key]
+        public int EventId { get; set; }
         [Required]
-        public int LocationId { get; set; }
+        [Display(Name = "Event Date")]
+        public DateTimeOffset EventDate { get; set; }
         [Required]
-        public Guid OwnerId { get; set; }
+        public int? Ghost { get; set; }
         [Required]
-        public string Name { get; set; }
+        public string Description { get; set; }
         [Required]
-        public string Address { get; set; }
-        [Required]
-        public int? Ghosts { get; set; }
+        public string Equipment { get; set; }
     }
 }

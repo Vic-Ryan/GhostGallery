@@ -58,6 +58,9 @@
     <Compile Include="GhostDetail.cs" />
     <Compile Include="GhostEdit.cs" />
     <Compile Include="GhostListItem.cs" />
+    <Compile Include="LocationCreate.cs" />
+    <Compile Include="LocationDetail.cs" />
+    <Compile Include="LocationEdit.cs" />
     <Compile Include="LocationListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
