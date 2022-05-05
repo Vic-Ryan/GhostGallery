@@ -34,7 +34,7 @@ namespace GhostGallery.Services
             }
         }
 
-        public IEnumerable<LocationListItem> GetGhosts()
+        public IEnumerable<LocationListItem> GetLocations()
         {
             using (var ctx = new ApplicationDbContext())
             {

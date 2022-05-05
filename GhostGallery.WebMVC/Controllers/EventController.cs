@@ -1,4 +1,4 @@
-﻿using GhostGallery.Models;
+﻿using GhostGallery.Models.Event;
 using GhostGallery.Services;
 using Microsoft.AspNet.Identity;
 using System;
@@ -9,15 +9,14 @@ using System.Web.Mvc;
 
 namespace GhostGallery.WebMVC.Controllers
 {
-    [Authorize]
-    public class LocationController : Controller
+    public class EventController : Controller
     {
         // GET: Ghost
         public ActionResult Index()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new LocationService(userId);
-            var model = service.GetLocations();
+            var service = new EventServices(userId);
+            var model = service.GetEvents();
             return View(model);
         }
 
@@ -29,79 +28,80 @@ namespace GhostGallery.WebMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(LocationCreate model)
+        public ActionResult Create(EventCreate model)
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
 
-            var service = CreateLocationService();
+            var service = CreateEventService();
 
-            if (service.CreateLocation(model))
+            if (service.CreateEvent(model))
             {
-                TempData["SaveResult"] = "Location successfully added.";
+                TempData["SaveResult"] = "Event successfully added.";
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Location could not be added");
+            ModelState.AddModelError("", "Event could not be added");
 
             return View(model);
         }
 
         public ActionResult Details(int id)
         {
-            var svc = CreateLocationService();
-            var model = svc.GetLocationById(id);
+            var svc = CreateEventService();
+            var model = svc.GetEventById(id);
             return View(model);
         }
 
         public ActionResult Edit(int id)
         {
-            var service = CreateLocationService();
-            var detail = service.GetLocationById(id);
-            var model = new LocationEdit
+            var service = CreateEventService();
+            var detail = service.GetEventById(id);
+            var model = new EventEdit
             {
-                LocationId = detail.LocationId,
-                Name = detail.Name,
-                Address = detail.Address,
-                Ghosts = detail.Ghosts
+                EventId = detail.EventId,
+                EventDate = detail.EventDate,
+                Ghost = detail.Ghost,
+                Description = detail.Description,
+                Equipment = detail.Equipment
             };
             return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, LocationEdit model)
+        public ActionResult Edit(int id, EventEdit model)
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
 
-            if (model.LocationId != id)
+            if (model.EventId != id)
             {
                 ModelState.AddModelError("", "Id Does Not Match");
                 return View(model);
             }
 
-            var service = CreateLocationService();
+            var service = CreateEventService();
 
-            if (service.UpdateLocation(model))
+            if (service.UpdateEvent(model))
             {
-                TempData["SaveResult"] = "Location successfully updated.";
+                TempData["SaveResult"] = "Event successfully updated.";
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Location could not be updated.");
+            ModelState.AddModelError("", "Event could not be updated.");
             return View(model);
         }
 
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
-            var svc = CreateLocationService();
-            var model = svc.GetLocationById(id);
+            var svc = CreateEventService();
+            var model = svc.GetEventById(id);
 
             return View(model);
         }
@@ -111,19 +111,19 @@ namespace GhostGallery.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteLocation(int id)
         {
-            var service = CreateLocationService();
+            var service = CreateEventService();
 
-            service.DeleteLocation(id);
+            service.DeleteEvent(id);
 
-            TempData["SaveResult"] = "Location successfully deleted.";
+            TempData["SaveResult"] = "Event successfully deleted.";
 
             return RedirectToAction("Index");
         }
 
-        private LocationService CreateLocationService()
+        private EventServices CreateEventService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new LocationService(userId);
+            var service = new EventServices(userId);
             return service;
         }
     }

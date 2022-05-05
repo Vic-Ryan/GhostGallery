@@ -5,22 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GhostGallery.Data
+namespace GhostGallery.Models.Event
 {
-    public class Event
+    public class EventEdit
     {
-        [Key]
+        [Display(Name = "Event Id")]
         public int EventId { get; set; }
-        [Required]
-        public Guid OwnerId { get; set; }
-        [Required]
         [Display(Name = "Event Date")]
         public DateTimeOffset EventDate { get; set; }
-        [Required]
         public int? Ghost { get; set; }
-        [Required]
         public string Description { get; set; }
-        [Required]
         public string Equipment { get; set; }
     }
 }
