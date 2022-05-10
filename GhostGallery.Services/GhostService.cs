@@ -81,7 +81,7 @@ namespace GhostGallery.Services
                 var entity = ctx.Ghosts.Single(e => e.GhostId == model.GhostId && e.OwnerId == _userId);
 
                 entity.Name = model.Name;
-                entity.Location = model.Location;
+                entity.LocationId = model.LocationId;
                 entity.Type = model.Type;
                 entity.FirstSighting = model.FirstSighting;
                 entity.Appearance = model.Appearance;
