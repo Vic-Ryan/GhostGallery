@@ -24,7 +24,7 @@ namespace GhostGallery.Services
                 OwnerId = _userId,
                 Name = model.Name,
                 Address = model.Address,
-                Ghosts = model.Ghosts
+                Ghost = model.Ghosts
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -58,7 +58,7 @@ namespace GhostGallery.Services
                     LocationId = entity.LocationId,
                     Name = entity.Name,
                     Address = entity.Address,
-                    Ghosts = entity.Ghosts
+                    Ghosts = entity.Ghost
                 };
             }
         }
@@ -72,7 +72,7 @@ namespace GhostGallery.Services
                 entity.LocationId = model.LocationId;
                 entity.Name = model.Name;
                 entity.Address = model.Address;
-                entity.Ghosts = model.Ghosts;
+                entity.Ghost = model.Ghosts;
 
                 return ctx.SaveChanges() == 1;
             }

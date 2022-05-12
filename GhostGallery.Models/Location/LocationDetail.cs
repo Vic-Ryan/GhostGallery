@@ -14,6 +14,6 @@ namespace GhostGallery.Models
         public string Name { get; set; }
         public string Address { get; set; }
         [Display(Name="Ghost(s)")]
-        public int? Ghosts { get; set; }
+        public string Ghosts { get; set; }
     }
 }

@@ -10,6 +10,6 @@ namespace GhostGallery.Models
     {
         public string Name { get; set; }
         public string Address { get; set; }
-        public int? Ghosts { get; set; }
+        public string Ghosts { get; set; }
     }
 }
