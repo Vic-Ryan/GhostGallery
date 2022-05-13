@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GhostGallery.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,6 +14,6 @@ namespace GhostGallery.Models.Event
         public int EventId { get; set; }
         [Display(Name = "Event Date")]
         public DateTimeOffset EventDate { get; set; }
-        public int? Ghost { get; set; }
+        public Ghost Ghost { get; set; }
     }
 }

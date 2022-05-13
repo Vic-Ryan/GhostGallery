@@ -23,7 +23,7 @@ namespace GhostGallery.Services
             {
                 OwnerId = _userId,
                 EventDate = model.EventDate,
-                Ghost = model.Ghost,
+                GhostId = model.GhostId,
                 Description = model.Description,
                 Equipment = model.Equipment
             };
@@ -73,7 +73,7 @@ namespace GhostGallery.Services
 
                 entity.EventId = model.EventId;
                 entity.EventDate = model.EventDate;
-                entity.Ghost = model.Ghost;
+                entity.GhostId = model.GhostId;
                 entity.Description = model.Description;
                 entity.Equipment = model.Equipment;
 

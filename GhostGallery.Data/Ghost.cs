@@ -16,7 +16,7 @@ namespace GhostGallery.Data
         public Guid OwnerId { get; set; }
         [Required]
         public string Name { get; set; }
-        [Display(Name ="Haunt Location")]
+        [Required]
         [ForeignKey("Location")]
         public int? LocationId { get; set; }
         public virtual Location Location { get; set; }

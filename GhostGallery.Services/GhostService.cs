@@ -23,7 +23,7 @@ namespace GhostGallery.Services
             {
                 OwnerId = _userId,
                 Name = model.Name,
-                Location = model.Location,
+                LocationId = model.LocationId,
                 Type = model.Type,
                 FirstSighting = model.FirstSighting,
                 Appearance = model.Appearance,
@@ -63,6 +63,7 @@ namespace GhostGallery.Services
                 {
                     GhostId = entity.GhostId,
                     Name = entity.Name,
+                    LocationId = entity.LocationId,
                     Location = entity.Location,
                     Type = entity.Type,
                     FirstSighting = entity.FirstSighting,

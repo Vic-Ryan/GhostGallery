@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GhostGallery.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -12,7 +13,8 @@ namespace GhostGallery.Models
         public int GhostId { get; set; }
         public string Name { get; set; }
         [Display(Name = "Haunt Location")]
-        public int? Location { get; set; }
+        public int? LocationId { get; set; }
+        public Location Location { get; set; }
         public string Type { get; set; }
         [Display(Name = "First Sighting")]
         public DateTimeOffset FirstSighting { get; set; }

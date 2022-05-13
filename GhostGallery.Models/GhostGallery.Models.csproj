@@ -72,6 +72,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\GhostGallery.Data\GhostGallery.Data.csproj">
+      <Project>{04C4B7C5-4298-4834-89B8-C15197F1C425}</Project>
+      <Name>GhostGallery.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

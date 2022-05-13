@@ -64,7 +64,7 @@ namespace GhostGallery.WebMVC.Controllers
             {
                 GhostId = detail.GhostId,
                 Name = detail.Name,
-                Location = detail.Location,
+                LocationId = detail.LocationId,
                 Type = detail.Type,
                 FirstSighting = detail.FirstSighting,
                 Appearance = detail.Appearance,

@@ -63,7 +63,7 @@ namespace GhostGallery.WebMVC.Controllers
             {
                 EventId = detail.EventId,
                 EventDate = detail.EventDate,
-                Ghost = detail.Ghost,
+                GhostId = detail.GhostId,
                 Description = detail.Description,
                 Equipment = detail.Equipment
             };

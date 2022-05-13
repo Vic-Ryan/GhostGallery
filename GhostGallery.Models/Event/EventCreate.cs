@@ -11,7 +11,7 @@ namespace GhostGallery.Models.Event
     {
         [Display(Name = "Event Date")]
         public DateTimeOffset EventDate { get; set; }
-        public int? Ghost { get; set; }
+        public int? GhostId { get; set; }
         public string Description { get; set; }
         public string Equipment { get; set; }
     }

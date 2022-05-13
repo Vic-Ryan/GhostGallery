@@ -10,7 +10,7 @@ namespace GhostGallery.Models
     public class GhostCreate
     {
         public string Name { get; set; }
-        public int Location { get; set; }
+        public int? LocationId { get; set; }
         public string Type { get; set; }
         public DateTimeOffset FirstSighting { get; set; }
         public string Appearance { get; set; }

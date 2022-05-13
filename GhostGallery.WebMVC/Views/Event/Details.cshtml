@@ -31,7 +31,8 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Ghost)
+            @Html.DisplayFor(model => model.Ghost.Name)
+            @Html.DisplayFor(model => model.Ghost.Location.Address)
         </dd>
 
         <dt>
