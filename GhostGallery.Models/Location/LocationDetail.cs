@@ -13,7 +13,6 @@ namespace GhostGallery.Models
         public int LocationId { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
-        [Display(Name="Ghost(s)")]
-        public string Ghosts { get; set; }
+
     }
 }

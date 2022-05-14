@@ -9,37 +9,31 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.LocationId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.LocationId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.LocationId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.LocationId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.LocationId })
-        </td>
-    </tr>
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+        @ViewBag.SaveResult
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
 }
 
-</table>
+
+
+@foreach (var item in Model)
+{
+
+    <div class="card" style="width: auto; border: 1px solid black">
+        <div class="card-body">
+            <h5 class="card-subtitle">#@item.LocationId @item.Name</h5>
+            <h6 class="card-title">@item.Address</h6>
+            <div class="btn-group-sm" role="group" aria-label="Location Configurations">
+                <button type="button" class="btn-secondary">@Html.ActionLink("Edit", "Edit", new { id = item.GhostId })</button>
+                <button type="button" class="btn-secondary">@Html.ActionLink("Details", "Details", new { id = item.GhostId })</button>
+                <button type="button" class="btn-secondary">@Html.ActionLink("Delete", "Delete", new { id = item.GhostId })</button>
+            </div>
+        </div>
+    </div>
+}

@@ -19,44 +19,21 @@
         @TempData["SaveResult"]
     </div>
 }
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.GhostId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Type)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstSighting)
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.GhostId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstSighting)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.GhostId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.GhostId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.GhostId })
-            </td>
-        </tr>
+
+@foreach (var item in Model)
+{
+
+        <div class="card" style="width: auto; border: 1px solid black">
+            <div class="card-body">
+                <h5 class="card-subtitle">@item.Name</h5>
+                <h6 class="card-title">@item.Type</h6>
+                <p class="card-text">ID: @item.GhostId, First Sighting: @item.FirstSighting</p>
+                <div class="btn-group-sm" role="group" aria-label="Ghost Configurations">
+                    <button type="button" class="btn-secondary">@Html.ActionLink("Edit", "Edit", new { id = item.GhostId })</button>
+                    <button type="button" class="btn-secondary">@Html.ActionLink("Details", "Details", new { id = item.GhostId })</button>
+                    <button type="button" class="btn-secondary">@Html.ActionLink("Delete", "Delete", new { id = item.GhostId })</button>
+                </div>
+            </div>
+        </div>
     }
-
-</table>

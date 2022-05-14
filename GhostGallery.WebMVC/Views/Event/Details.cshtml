@@ -1,5 +1,6 @@
 ﻿@model GhostGallery.Models.Event.EventDetail
 
+
 @{
     ViewBag.Title = "Details";
 }
@@ -32,7 +33,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.Ghost.Name)
-            @Html.DisplayFor(model => model.Ghost.Location.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ghost.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ghost.Type)
         </dd>
 
         <dt>

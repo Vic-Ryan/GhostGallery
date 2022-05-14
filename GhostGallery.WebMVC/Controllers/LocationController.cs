@@ -65,7 +65,6 @@ namespace GhostGallery.WebMVC.Controllers
                 LocationId = detail.LocationId,
                 Name = detail.Name,
                 Address = detail.Address,
-                Ghosts = detail.Ghosts
             };
             return View(model);
         }
