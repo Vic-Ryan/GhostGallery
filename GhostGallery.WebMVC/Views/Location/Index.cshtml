@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Locations</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
+<p style="color:white;">
+    <button type="button" class="btn btn-outline-secondary">@Html.ActionLink("Log Location", "Create")</button>
 </p>
 @if (TempData.ContainsKey("SaveResult"))
 {
@@ -21,22 +21,22 @@
 }
 
 
+<div class="row">
+    @foreach (var item in Model)
+    {
 
-@foreach (var item in Model)
-{
-    <div class="row">
-        <div class="col">
-            <div class="card" style="width: auto; border: 1px solid black">
-                <div class="card-body">
-                    <h5 class="card-subtitle">#@item.LocationId @item.Name</h5>
+        <div class="col-sm-4">
+            <div class="card" style="width: auto; border: 5px solid darkseagreen; margin-bottom: 5rem; border-radius: 2rem; text-align: center; background-color: gray; color: white;">
+                <div class="card-body" style="font-family: Courier New, monospace;">
+                    <h5 class="card-subtitle" style="color: black; font-family: Times, Times New Roman, serif; font-weight: bold;">#@item.LocationId, @item.Name</h5>
                     <h6 class="card-title">@item.Address</h6>
-                    <div class="btn-group-sm" role="group" aria-label="Location Configurations">
-                        <button type="button" class="btn-secondary">@Html.ActionLink("Edit", "Edit", new { id = item.LocationId })</button>
-                        <button type="button" class="btn-secondary">@Html.ActionLink("Details", "Details", new { id = item.LocationId })</button>
-                        <button type="button" class="btn-secondary">@Html.ActionLink("Delete", "Delete", new { id = item.LocationId })</button>
+                    <div class="btn-group" role="group" aria-label="Location Configurations">
+                        <button type="button" class="btn btn-default">@Html.ActionLink("Edit", "Edit", new { id = item.LocationId })</button>
+                        <button type="button" class="btn btn-default">@Html.ActionLink("Details", "Details", new { id = item.LocationId })</button>
+                        <button type="button" class="btn btn-default">@Html.ActionLink("Delete", "Delete", new { id = item.LocationId })</button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-}
+    }
+</div>

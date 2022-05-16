@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Ghosts</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <button type="button" class="btn btn-outline-secondary">@Html.ActionLink("Create New", "Create")</button>
 </p>
 @if (TempData.ContainsKey("SaveResult"))
 {
@@ -20,20 +20,23 @@
     </div>
 }
 
+<div class="row">
+    @foreach (var item in Model)
+    {
 
-@foreach (var item in Model)
-{
-
-        <div class="card" style="width: auto; border: 1px solid black">
-            <div class="card-body">
-                <h5 class="card-subtitle">@item.Name</h5>
-                <h6 class="card-title">@item.Type</h6>
-                <p class="card-text">ID: @item.GhostId, First Sighting: @item.FirstSighting</p>
-                <div class="btn-group-sm" role="group" aria-label="Ghost Configurations">
-                    <button type="button" class="btn-secondary">@Html.ActionLink("Edit", "Edit", new { id = item.GhostId })</button>
-                    <button type="button" class="btn-secondary">@Html.ActionLink("Details", "Details", new { id = item.GhostId })</button>
-                    <button type="button" class="btn-secondary">@Html.ActionLink("Delete", "Delete", new { id = item.GhostId })</button>
+        <div class="col-sm-4">
+            <div class="card" style="width: auto; border: 5px solid darkseagreen; margin-bottom: 5rem; border-radius: 2rem; text-align: center; background-color: gray; color: white;">
+                <div class="card-body" style="font-family: Courier New, monospace;">
+                    <h5 class="card-subtitle" style="color: black; font-weight: bold; font-family: Times, Times New Roman, serif;">#@item.GhostId, @item.Name</h5>
+                    <h6 class="card-title">Type: @item.Type</h6>
+                    <h6 class="card-title">First Sighted: @item.FirstSighting</h6>
+                    <div class="btn-group" role="group" aria-label="Location Configurations">
+                        <button type="button" class="btn btn-default">@Html.ActionLink("Edit", "Edit", new { id = item.GhostId })</button>
+                        <button type="button" class="btn btn-default">@Html.ActionLink("Details", "Details", new { id = item.GhostId })</button>
+                        <button type="button" class="btn btn-default">@Html.ActionLink("Delete", "Delete", new { id = item.GhostId })</button>
+                    </div>
                 </div>
             </div>
         </div>
     }
+</div>
