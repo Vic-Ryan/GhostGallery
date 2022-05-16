@@ -22,9 +22,14 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Locations", "Index", "Location")</li>
-                    <li>@Html.ActionLink("Ghosts", "Index", "Ghost")</li>
-                    <li>@Html.ActionLink("Events", "Index", "Event")</li>
+                    <li class="nav-item-dropdown">
+                        <a class="navbar-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ghost Information</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-item"  style="text-align:center;">@Html.ActionLink("Locations", "Index", "Location")</div>
+                            <div class="dropdown-item"  style="text-align:center;">@Html.ActionLink("Ghosts", "Index", "Ghost")</div>
+                            <div class="dropdown-item"  style="text-align:center;">@Html.ActionLink("Events", "Index", "Event")</div>
+                        </div>
+                    </li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>

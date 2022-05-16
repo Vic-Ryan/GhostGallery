@@ -4,7 +4,7 @@
     ViewBag.Title = "Log in";
 }
 
-<h2>@ViewBag.Title.</h2>
+<h2>Welcome, Ghost Hunter</h2>
 <div class="row">
     <div class="col-md-8">
         <section id="loginForm">
@@ -41,9 +41,9 @@
                         <input type="submit" value="Log in" class="btn btn-default" />
                     </div>
                 </div>
-                <p>
-                    @Html.ActionLink("Register as a new user", "Register")
-                </p>
+                <button type="button" class="btn btn-light">
+                    @Html.ActionLink("Register as a new hunter", "Register")
+                </button>
                 @* Enable this once you have account confirmation enabled for password reset functionality
                     <p>
                         @Html.ActionLink("Forgot your password?", "ForgotPassword")
