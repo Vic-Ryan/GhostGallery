@@ -24,15 +24,18 @@
 
 @foreach (var item in Model)
 {
-
-    <div class="card" style="width: auto; border: 1px solid black">
-        <div class="card-body">
-            <h5 class="card-subtitle">#@item.LocationId @item.Name</h5>
-            <h6 class="card-title">@item.Address</h6>
-            <div class="btn-group-sm" role="group" aria-label="Location Configurations">
-                <button type="button" class="btn-secondary">@Html.ActionLink("Edit", "Edit", new { id = item.GhostId })</button>
-                <button type="button" class="btn-secondary">@Html.ActionLink("Details", "Details", new { id = item.GhostId })</button>
-                <button type="button" class="btn-secondary">@Html.ActionLink("Delete", "Delete", new { id = item.GhostId })</button>
+    <div class="row">
+        <div class="col">
+            <div class="card" style="width: auto; border: 1px solid black">
+                <div class="card-body">
+                    <h5 class="card-subtitle">#@item.LocationId @item.Name</h5>
+                    <h6 class="card-title">@item.Address</h6>
+                    <div class="btn-group-sm" role="group" aria-label="Location Configurations">
+                        <button type="button" class="btn-secondary">@Html.ActionLink("Edit", "Edit", new { id = item.LocationId })</button>
+                        <button type="button" class="btn-secondary">@Html.ActionLink("Details", "Details", new { id = item.LocationId })</button>
+                        <button type="button" class="btn-secondary">@Html.ActionLink("Delete", "Delete", new { id = item.LocationId })</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
