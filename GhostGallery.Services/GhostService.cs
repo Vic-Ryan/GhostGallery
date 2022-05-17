@@ -10,18 +10,18 @@ namespace GhostGallery.Services
 {
     public class GhostService
     {
-        private readonly Guid _userId;
+       // private readonly Guid _userId;
 
-        public GhostService(Guid userId)
+        public GhostService()
         {
-            _userId = userId;
+            //_userId = userId;
         }
 
         public bool CreateGhost(GhostCreate model)
         {
             var entity = new Ghost()
             {
-                OwnerId = _userId,
+                //OwnerId = _userId,
                 Name = model.Name,
                 LocationId = model.LocationId,
                 Type = model.Type,
@@ -58,7 +58,7 @@ namespace GhostGallery.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Ghosts.Single(e => e.GhostId == id && e.OwnerId == _userId);
+                var entity = ctx.Ghosts.Single(e => e.GhostId == id); //UserId
                 return new GhostDetail
                 {
                     GhostId = entity.GhostId,
@@ -79,7 +79,7 @@ namespace GhostGallery.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Ghosts.Single(e => e.GhostId == model.GhostId && e.OwnerId == _userId);
+                var entity = ctx.Ghosts.Single(e => e.GhostId == model.GhostId); //UserId
 
                 entity.Name = model.Name;
                 entity.LocationId = model.LocationId;
@@ -98,7 +98,7 @@ namespace GhostGallery.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Ghosts.Single(e => e.GhostId == ghostId && e.OwnerId == _userId);
+                var entity = ctx.Ghosts.Single(e => e.GhostId == ghostId); //userId
 
                 ctx.Ghosts.Remove(entity);
 

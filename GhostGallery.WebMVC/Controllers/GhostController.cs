@@ -15,8 +15,8 @@ namespace GhostGallery.WebMVC.Controllers
         // GET: Ghost
         public ActionResult Index()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new GhostService(userId);
+            //var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new GhostService();
             var model = service.GetGhosts();
             return View(model);
         }
@@ -127,8 +127,8 @@ namespace GhostGallery.WebMVC.Controllers
 
         private GhostService CreateGhostService()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new GhostService(userId);
+            //var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new GhostService();
             return service;
         }
     }

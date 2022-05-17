@@ -10,18 +10,17 @@ namespace GhostGallery.Services
 {
     public class LocationService
     {
-        private readonly Guid _userId;
+        //private readonly Guid _userId;
 
-        public LocationService(Guid userId)
+        public LocationService()
         {
-            _userId = userId;
+           // _userId = userId;
         }
 
         public bool CreateLocation(LocationCreate model)
         {
             var entity = new Location()
             {
-                OwnerId = _userId,
                 Name = model.Name,
                 Address = model.Address,
             };
@@ -51,7 +50,7 @@ namespace GhostGallery.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Locations.Single(e => e.LocationId == id && e.OwnerId == _userId);
+                var entity = ctx.Locations.Single(e => e.LocationId == id); //UserId
                 return new LocationDetail
                 {
                     LocationId = entity.LocationId,
@@ -65,7 +64,7 @@ namespace GhostGallery.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Locations.Single(e => e.LocationId == model.LocationId && e.OwnerId == _userId);
+                var entity = ctx.Locations.Single(e => e.LocationId == model.LocationId); //UserId
 
                 entity.LocationId = model.LocationId;
                 entity.Name = model.Name;
@@ -79,7 +78,7 @@ namespace GhostGallery.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Locations.Single(e => e.LocationId == locationId && e.OwnerId == _userId);
+                var entity = ctx.Locations.Single(e => e.LocationId == locationId); //UserId
 
                 ctx.Locations.Remove(entity);
 

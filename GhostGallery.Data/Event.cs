@@ -13,8 +13,6 @@ namespace GhostGallery.Data
         [Key]
         public int EventId { get; set; }
         [Required]
-        public Guid OwnerId { get; set; }
-        [Required]
         [Display(Name = "Event Date")]
         public DateTimeOffset EventDate { get; set; }
         [Required]

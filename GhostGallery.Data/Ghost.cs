@@ -12,8 +12,8 @@ namespace GhostGallery.Data
     {
         [Key]
         public int GhostId { get; set; }
-        [Required]
-        public Guid OwnerId { get; set; }
+       // [Required]
+       // public Guid OwnerId { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]

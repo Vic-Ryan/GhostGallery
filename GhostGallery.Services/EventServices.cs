@@ -10,18 +10,17 @@ namespace GhostGallery.Services
 {
     public class EventServices
     {
-        private readonly Guid _userId;
+        //private readonly Guid _userId;
 
-        public EventServices(Guid userId)
+        public EventServices()
         {
-            _userId = userId;
+            
         }
 
         public bool CreateEvent(EventCreate model)
         {
             var entity = new Event()
             {
-                OwnerId = _userId,
                 EventDate = model.EventDate,
                 GhostId = model.GhostId,
                 Description = model.Description,
@@ -53,7 +52,7 @@ namespace GhostGallery.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Events.Single(e => e.EventId == id && e.OwnerId == _userId);
+                var entity = ctx.Events.Single(e => e.EventId == id);
                 return new EventDetail
                 {
                     EventId = entity.EventId,
@@ -69,7 +68,7 @@ namespace GhostGallery.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Events.Single(e => e.EventId == model.EventId && e.OwnerId == _userId);
+                var entity = ctx.Events.Single(e => e.EventId == model.EventId);
 
                 entity.EventId = model.EventId;
                 entity.EventDate = model.EventDate;
@@ -85,7 +84,7 @@ namespace GhostGallery.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Events.Single(e => e.EventId == eventId && e.OwnerId == _userId);
+                var entity = ctx.Events.Single(e => e.EventId == eventId);
 
                 ctx.Events.Remove(entity);
 

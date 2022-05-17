@@ -13,8 +13,6 @@ namespace GhostGallery.Data
         [Required]
         public int LocationId { get; set; }
         [Required]
-        public Guid OwnerId { get; set; }
-        [Required]
         public string Name { get; set; }
         [Required]
         public string Address { get; set; }
